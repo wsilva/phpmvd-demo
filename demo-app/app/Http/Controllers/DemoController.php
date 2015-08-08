@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use \Cache;
 use \Queue;
+use App\Commands\Curtir;
 
 use Illuminate\Http\Request;
 
@@ -22,8 +23,9 @@ class DemoController extends Controller
 
 	public function curtir()
 	{
-		Queue::pushOn('curtida', 'nova curtida');
-		Cache::increment('curtidas');
+		// Queue::pushOn('curtida', 'nova curtida');
+		Queue::pushOn('curtida', new Curtir());
+		// Cache::increment('curtidas');
 		return redirect('demo')->with('message', 'Curtida Ok!');
 	}
 

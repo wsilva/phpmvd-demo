@@ -7,7 +7,6 @@ proxy:
 
 redis:
     build: ./containers/redis
-    privileged: true
     volumes:
         - ./containers/redis:/data
     ports:
@@ -30,9 +29,17 @@ web:
     links:
         - redis:redis.inet
         - rabbit:rabbit.inet
-    privileged: true
     volumes:
         - ./demo-app:/src
     ports:
         - "80"
+    entrypoint: ["/run.sh"]
+
+consumer:
+    build: ./containers/consumer
+    links:
+        - redis:redis.inet
+        - rabbit:rabbit.inet
+    volumes:
+        - ./demo-app:/src
     entrypoint: ["/run.sh"]
