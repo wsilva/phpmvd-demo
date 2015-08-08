@@ -63,9 +63,9 @@ WORKDIR /
 COPY run.sh /run.sh
 RUN chmod a+x /run.sh
 
-COPY meetup.inet.conf /etc/nginx/sites-available/meetup.inet.conf
+COPY demo.inet.conf /etc/nginx/sites-available/demo.inet.conf
 
-RUN ln -sf /etc/nginx/sites-available/meetup.inet.conf /etc/nginx/sites-enabled/meetup.inet.conf
+RUN ln -sf /etc/nginx/sites-available/demo.inet.conf /etc/nginx/sites-enabled/demo.inet.conf
 
 RUN apt-get clean
 

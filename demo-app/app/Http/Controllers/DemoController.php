@@ -8,13 +8,13 @@ use \Queue;
 
 use Illuminate\Http\Request;
 
-class MeetupController extends Controller
+class DemoController extends Controller
 {
 
-	public function meetup()
+	public function demo()
 	{
 		$curtidas = Cache::get('curtidas', 0);
-		return view('meetup.index')
+		return view('demo.index')
 			->with('curtidas', $curtidas)
 			->with('container', gethostname())
 			->with('serverip', $_SERVER['SERVER_ADDR']);
@@ -24,7 +24,7 @@ class MeetupController extends Controller
 	{
 		Queue::pushOn('curtida', 'nova curtida');
 		Cache::increment('curtidas');
-		return redirect('meetup')->with('message', 'Curtida Ok!');
+		return redirect('demo')->with('message', 'Curtida Ok!');
 	}
 
 }

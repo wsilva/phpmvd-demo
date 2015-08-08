@@ -13,8 +13,8 @@
 
 Route::get('/', 'WelcomeController@index');
 
-Route::get('/meetup', 'MeetupController@meetup');
-Route::get('/meetup/curtir', 'MeetupController@curtir');
+Route::get('/demo', 'DemoController@demo');
+Route::get('/demo/curtir', 'DemoController@curtir');
 
 Route::get('home', 'HomeController@index');
 

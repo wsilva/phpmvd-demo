@@ -16,19 +16,19 @@
     }
     </style>
     <meta charset="UTF-8">
-    <title>Meetup</title>
+    <title>Demo</title>
 </head>
 <body>
     <div class="container">
         <div class="content">
             <div class="title">
-            <h1>Relaxa papai, final de semana é nóis...</h1>
+            <h1>Relax Daddy! After work we can relax...</h1>
             </div>
             <div class="foto"><img src="/images/helena.jpg" alt=""></div>
             <div class="likebutton">
                 {{ $curtidas }} curtida(s)
                 <br>
-                <a href="/meetup/curtir">Curtir</a>
+                <a href="/demo/curtir">Curtir</a>
             </div>
             <div class="server">
                 Servidor: {{ $container }} <br>IP: {{ $serverip }})

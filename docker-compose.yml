@@ -18,7 +18,7 @@ rabbit:
     image: rabbitmq:management
     environment:
         - RABBITMQ_DEFAULT_USER=admin
-        - RABBITMQ_DEFAULT_PASS=meetup
+        - RABBITMQ_DEFAULT_PASS=demo
     ports:
         - "5672:5672"
         - "15672:15672"
@@ -26,13 +26,13 @@ rabbit:
 web:
     build: ./containers/web
     environment:
-        - VIRTUAL_HOST=meetup.inet
+        - VIRTUAL_HOST=demo.inet
     links:
         - redis:redis.inet
         - rabbit:rabbit.inet
     privileged: true
     volumes:
-        - ./meetup-app:/src
+        - ./demo-app:/src
     ports:
         - "80"
     entrypoint: ["/run.sh"]
